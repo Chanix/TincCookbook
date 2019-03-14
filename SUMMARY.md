@@ -1,6 +1,6 @@
 # Summary
 
-* [介绍](todo.md)
+* [介绍](README.md)
 * [tinc 简介](todo.md)
     * [历史](todo.md)
     * [特点](todo.md)
