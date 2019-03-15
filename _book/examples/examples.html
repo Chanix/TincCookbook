@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>tinc 简介 · tinc 实操指南 （TincCookbook）</title>
+        <title>实例 · tinc 实操指南 （TincCookbook）</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../basicknowledge/basicknowledge.html" />
+    <link rel="next" href="../advanced/advanced.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="../basicknowledge/basicknowledge.html" />
     
 
     </head>
@@ -102,9 +102,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="Introduction.html">
+        <li class="chapter " data-level="1.2" data-path="../Introduction/Introduction.html">
             
-                <a href="Introduction.html">
+                <a href="../Introduction/Introduction.html">
             
                     
                     tinc 简介
@@ -128,9 +128,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../examples/examples.html">
+        <li class="chapter active" data-level="1.4" data-path="examples.html">
             
-                <a href="../examples/examples.html">
+                <a href="examples.html">
             
                     
                     实例
@@ -242,7 +242,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >tinc 简介</a>
+        <a href=".." >实例</a>
     </h1>
 </div>
 
@@ -257,28 +257,20 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="tinc-&#x7B80;&#x4ECB;">tinc &#x7B80;&#x4ECB;</h1>
-<p>&#x3000;&#x3000;tinc VPN &#x865A;&#x62DF;&#x4E13;&#x6709;&#x7F51;&#x7EDC;&#xFF08;VPN&#xFF09;&#x7684;&#x5B9E;&#x73B0;&#x8F6F;&#x4EF6;&#xFF0C;&#x4EE5; GNU &#x534F;&#x8BAE;&#x53D1;&#x5E03;&#x5E76;&#x5F00;&#x6E90;&#x3002;&#x5176;&#x901A;&#x8FC7;&#x96A7;&#x9053;&#x53CA;&#x52A0;&#x5BC6;&#x6280;&#x672F;&#x5728;&#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x70B9;&#x4E0E;&#x70B9;&#x4E4B;&#x95F4;&#x521B;&#x5EFA;&#x4E13;&#x6709;&#x7F51;&#x7EDC;&#x3002;tinc &#x5DE5;&#x4F5C;&#x5728; IP &#x5C42;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x50CF;&#x666E;&#x901A;&#x7684;&#x7F51;&#x7EDC;&#x8BBE;&#x5907;&#x90A3;&#x6837;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x53BB;&#x9002;&#x914D;&#x5176;&#x4ED6;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x8F6F;&#x4EF6;&#x3002;&#x53EF;&#x4EE5;&#x5B89;&#x5168;&#x7684;&#x5728;&#x70B9;&#x4E0E;&#x70B9;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x4F20;&#x8F93;&#xFF0C;&#x65E0;&#x9700;&#x62C5;&#x5FC3;&#x6570;&#x636E;&#x6CC4;&#x9732;&#x3002;&#x5176;&#x4F18;&#x52BF;&#x5728;&#x4E8E;&#xFF1A;</p>
-<!--*《TODO》这里以后逐项进行解释，现在列一下就好了，目标用户并不会太关心。*-->
-<ul>
-<li><p>&#x52A0;&#x5BC6; / &#x8BA4;&#x8BC1; / &#x538B;&#x7F29;</p>
-</li>
-<li><p>&#x81EA;&#x52A8;&#x5206;&#x5E03;&#x5F0F;&#x7F51;&#x72B6;&#x8DEF;&#x7531;</p>
-</li>
-<li><p>&#x652F;&#x6301;NAT&#xFF0C;&#x5185;&#x7F51;&#x7A7F;&#x900F;</p>
-</li>
-<li><p>&#x6613;&#x4E8E;&#x6269;&#x5C55;&#x7F51;&#x7EDC;&#x8282;&#x70B9;</p>
-</li>
-<li><p>&#x652F;&#x6301;&#x4EE5;&#x592A;&#x7F51;&#x7EDC;&#x6865;&#x63A5;</p>
-</li>
-<li><p>&#x8DE8;&#x5E73;&#x53F0;&#xFF0C;&#x652F;&#x6301; IPv6</p>
-</li>
-</ul>
-<!--分布式的，基于网状结构的网络路由，基于P2P的技术，可以实现流量直接到达目标机器，而不像传统VPN 那样必须经过中间的服务端。-->
-<!--When one introduces encryption, we can form a true VPN. Other people may see encrypted traffic, but if they don’t know how to decipher it (they need to know the key for that), they cannot read the information that flows through the VPN. This is what tinc was made for.-->
-<p>&#x6CE8;&#xFF1A;</p>
-<p>&#x4E0E;tinc&#x7C7B;&#x4F3C;&#x7684;&#x8F6F;&#x4EF6;&#x8FD8;&#x6709; N2N&#x3001;PeerVPN&#x3001;ZeroTire&#x7B49;</p>
-
+                                <h1 id="&#x5B9E;&#x4F8B;">&#x5B9E;&#x4F8B;</h1>
+<p>&#x3000;&#x3000;&#x8FD9;&#x91CC;&#x653E;&#x5B9E;&#x4F8B;&#xFF1A;</p>
+<p>1&#x3001;&#x6211;&#x7684;&#x5BB6;&#x5EAD;&#x7F51;&#x7EDC;</p>
+<p>2&#x3001;&#x516C;&#x53F8;&#x529E;&#x516C;</p>
+<p>3&#x3001;&#x670D;&#x52A1;&#x5668;&#x4E92;&#x8054;</p>
+<pre><code>* [Windows](todo.md)
+* [Ubuntu 14.04](todo.md)
+* [Ubuntu 16.04](todo.md)
+* [Ubuntu 18.04](todo.md)
+* [Mac OS X](todo.md)
+* [CentOS](todo.md)
+* [&#x7FA4;&#x8F89;](todo.md)
+* [OpenWrt](todo.md)
+</code></pre>
                                 
                                 </section>
                             
@@ -305,12 +297,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 介绍">
+                <a href="../basicknowledge/basicknowledge.html" class="navigation navigation-prev " aria-label="Previous page: 基础知识">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../basicknowledge/basicknowledge.html" class="navigation navigation-next " aria-label="Next page: 基础知识">
+                <a href="../advanced/advanced.html" class="navigation navigation-next " aria-label="Next page: 进阶">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -321,7 +313,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"tinc 简介","level":"1.2","depth":1,"next":{"title":"基础知识","level":"1.3","depth":1,"path":"basicknowledge/basicknowledge.md","ref":"basicknowledge/basicknowledge.md","articles":[]},"previous":{"title":"介绍","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Chanix","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"tinc 实操指南 （TincCookbook）","gitbook":"*"},"file":{"path":"Introduction/Introduction.md","mtime":"2019-03-15T03:55:16.082Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-15T05:01:28.613Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"实例","level":"1.4","depth":1,"next":{"title":"进阶","level":"1.5","depth":1,"path":"advanced/advanced.md","ref":"advanced/advanced.md","articles":[{"title":"tinc.conf 配置文件说明","level":"1.5.1","depth":2,"path":"manual/manual_main_config.md","ref":"manual/manual_main_config.md","articles":[]},{"title":"host 配置项目说明","level":"1.5.2","depth":2,"path":"manual/manual_host_config.md","ref":"manual/manual_host_config.md","articles":[]},{"title":"脚本执行","level":"1.5.3","depth":2,"path":"manual/manual_script.md","ref":"manual/manual_script.md","articles":[]}]},"previous":{"title":"基础知识","level":"1.3","depth":1,"path":"basicknowledge/basicknowledge.md","ref":"basicknowledge/basicknowledge.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Chanix","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"tinc 实操指南 （TincCookbook）","gitbook":"*"},"file":{"path":"examples/examples.md","mtime":"2019-03-15T04:30:56.673Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-15T05:01:28.613Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
