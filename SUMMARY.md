@@ -1,11 +1,8 @@
 # Summary
 
 * [介绍](README.md)
-* [tinc 简介](todo.md)
-    * [历史](todo.md)
-    * [特点](todo.md)
-    * [支持的平台](todo.md)
-    * [作者实操验证过的的平台](todo.md)
+* [tinc 简介](Introduction/Introduction.md)
+* [基础原理与知识] (basicknowledge/basicknowledge.md)
 * [使用步骤](todo.md)
     * [tinc是否适合？](todo.md)
     * [配置内核与工具链](todo.md)
