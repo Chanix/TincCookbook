@@ -1,6 +1,6 @@
 # Summary
 
-* [介绍](README.md)
+* [介绍 / 作者序](README.md)
 * [tinc 简介](Introduction/Introduction.md)
 * [基础知识](basicknowledge/basicknowledge.md)
 * [实例](examples/examples.md)

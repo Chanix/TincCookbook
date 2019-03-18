@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>tinc 简介 · tinc 实操指南 （TincCookbook）</title>
+        <title>tinc 简介 · tinc 简明教程 （TincCookbook）</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -12,9 +12,18 @@
         
         
     
+    
     <link rel="stylesheet" href="../gitbook/style.css">
 
     
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-terminal/plugin.css">
+                
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
@@ -44,6 +53,9 @@
         
     
         
+    
+
+
     
 
         
@@ -94,7 +106,7 @@
                 <a href="../">
             
                     
-                    介绍
+                    介绍 / 作者序
             
                 </a>
             
@@ -213,26 +225,164 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="tinc-&#x7B80;&#x4ECB;">tinc &#x7B80;&#x4ECB;</h1>
-<p>&#x3000;&#x3000;tinc VPN &#x865A;&#x62DF;&#x4E13;&#x6709;&#x7F51;&#x7EDC;&#xFF08;VPN&#xFF09;&#x7684;&#x5B9E;&#x73B0;&#x8F6F;&#x4EF6;&#xFF0C;&#x4EE5; GNU &#x534F;&#x8BAE;&#x53D1;&#x5E03;&#x5E76;&#x5F00;&#x6E90;&#x3002;&#x5176;&#x901A;&#x8FC7;&#x96A7;&#x9053;&#x53CA;&#x52A0;&#x5BC6;&#x6280;&#x672F;&#x5728;&#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x70B9;&#x4E0E;&#x70B9;&#x4E4B;&#x95F4;&#x521B;&#x5EFA;&#x4E13;&#x6709;&#x7F51;&#x7EDC;&#x3002;tinc &#x5DE5;&#x4F5C;&#x5728; IP &#x5C42;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x50CF;&#x666E;&#x901A;&#x7684;&#x7F51;&#x7EDC;&#x8BBE;&#x5907;&#x90A3;&#x6837;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x53BB;&#x9002;&#x914D;&#x5176;&#x4ED6;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x8F6F;&#x4EF6;&#x3002;&#x53EF;&#x4EE5;&#x5B89;&#x5168;&#x7684;&#x5728;&#x70B9;&#x4E0E;&#x70B9;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x4F20;&#x8F93;&#xFF0C;&#x65E0;&#x9700;&#x62C5;&#x5FC3;&#x6570;&#x636E;&#x6CC4;&#x9732;&#x3002;&#x5176;&#x4F18;&#x52BF;&#x5728;&#x4E8E;&#xFF1A;</p>
-<!--*《TODO》这里以后逐项进行解释，现在列一下就好了，目标用户并不会太关心。*-->
+<p>&#x3000;&#x3000;tinc &#x662F;&#x4E00;&#x4E2A;&#x7EC4;&#x5EFA;&#x865A;&#x62DF;&#x4E13;&#x7528;&#x7F51;&#x7EDC;&#xFF08;VPN&#xFF09;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x4EE5; GNU &#x534F;&#x8BAE;&#x53D1;&#x5E03;&#x5E76;&#x5F00;&#x6E90;&#xFF0C;&#x901A;&#x8FC7;&#x96A7;&#x9053;&#x53CA;&#x52A0;&#x5BC6;&#x6280;&#x672F;&#x5728;&#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x70B9;&#x4E0E;&#x70B9;&#x4E4B;&#x95F4;&#x521B;&#x5EFA;&#x4E13;&#x6709;&#x7F51;&#x7EDC;&#x3002;&#x4F7F;&#x7528; tinc &#x7EC4;&#x7F51;&#xFF0C;&#x65E0;&#x8BBA;&#x4F55;&#x65F6;&#x4F55;&#x5730;&#xFF0C;&#x53EA;&#x8981;&#x80FD;&#x8FDE;&#x5165;&#x4E92;&#x8054;&#x7F51;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x64CD;&#x4F5C; VPN &#x4E2D;&#x7684;&#x8BBE;&#x5907;&#xFF0C;&#x540C;&#x65F6;&#x7F51;&#x7EDC;&#x901A;&#x8BAF;&#x7ECF;&#x8FC7;&#x52A0;&#x5BC6;&#x548C;&#x538B;&#x7F29;&#xFF0C;&#x5B89;&#x5168;&#x6027;&#x4E5F;&#x6709;&#x63D0;&#x9AD8;&#x3002;</p>
+<p>&#x3000;&#x3000;tinc VPN &#x662F;&#x5BF9;&#x7B49;&#x7684;&#x7F51;&#x7EDC;&#xFF0C;&#x6CA1;&#x6709; server &#x548C; client &#x4E4B;&#x5206;&#xFF0C;&#x7F51;&#x7EDC;&#x4E2D;&#x6BCF;&#x4E2A;&#x8FDE;&#x63A5;&#x7684;&#x8BBE;&#x5907;&#x90FD;&#x89C6;&#x4E3A;&#x4E00;&#x4E2A;&#x4E3B;&#x673A;&#xFF0C;&#x8FD9;&#x4E9B;&#x4E3B;&#x673A;&#x4E0A;&#x90FD;&#x8FD0;&#x884C; tinc&#xFF08;&#x8DEF;&#x7531;&#x5668; NAT &#x9664;&#x5916;&#xFF0C;&#x540E;&#x9762;&#x4F1A;&#x6709;&#x8BB2;&#x5230;&#xFF09;&#x3002;&#x5B89;&#x88C5;&#x3001;&#x914D;&#x7F6E;&#x548C;&#x8FD0;&#x884C;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x540E;&#x671F;&#x589E;&#x52A0;/&#x5220;&#x9664;&#x4E3B;&#x673A;&#x4E5F;&#x5F88;&#x65B9;&#x4FBF;&#xFF08;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x91CD;&#x542F;&#x5373;&#x53EF;&#xFF09;&#xFF0C;&#x4F46;&#x9700;&#x8981;&#x60A8;&#x5BF9;&#x63A5;&#x5165;&#x7684;&#x4E3B;&#x673A;&#x6709;&#x64CD;&#x4F5C;&#x6743;&#x9650;&#x3002;</p>
+<p>&#x200B;    tinc &#x652F;&#x6301;&#x591A;&#x79CD;&#x6A21;&#x5F0F;&#xFF0C;&#x5305;&#x62EC; router&#x3001;switch&#x3001;hub&#xFF0C;&#x53EF;&#x4EE5;&#x60F3;&#x8C61;&#x6210;&#x4E3A;&#x865A;&#x62DF;&#x7684; &#x8DEF;&#x7531;&#x5668;&#x3001;&#x4EA4;&#x6362;&#x3001;&#x96C6;&#x7EBF;&#x5668;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A; router &#x5373;&#x8DEF;&#x7531;&#x5668;&#x6A21;&#x5F0F;&#xFF0C;&#x4E00;&#x822C;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x8DEF;&#x7531;&#x5668;&#x6A21;&#x5F0F;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x6211;&#x6765;&#x8BF4;&#xFF0C;&#x9009;&#x62E9; tinc &#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x7406;&#x7531;&#xFF1A;</p>
 <ul>
-<li><p>&#x52A0;&#x5BC6; / &#x8BA4;&#x8BC1; / &#x538B;&#x7F29;</p>
-</li>
-<li><p>&#x81EA;&#x52A8;&#x5206;&#x5E03;&#x5F0F;&#x7F51;&#x72B6;&#x8DEF;&#x7531;</p>
-</li>
-<li><p>&#x652F;&#x6301;NAT&#xFF0C;&#x5185;&#x7F51;&#x7A7F;&#x900F;</p>
-</li>
-<li><p>&#x6613;&#x4E8E;&#x6269;&#x5C55;&#x7F51;&#x7EDC;&#x8282;&#x70B9;</p>
-</li>
-<li><p>&#x652F;&#x6301;&#x4EE5;&#x592A;&#x7F51;&#x7EDC;&#x6865;&#x63A5;</p>
-</li>
-<li><p>&#x8DE8;&#x5E73;&#x53F0;&#xFF0C;&#x652F;&#x6301; IPv6</p>
+<li>&#x5F00;&#x6E90;&#xFF0C;&#x622A;&#x6B62;&#x76EE;&#x524D;&#x8FD8;&#x5728;&#x4E0D;&#x65AD;&#x66F4;&#x65B0;&#x5B8C;&#x5584;&#xFF1B;</li>
+<li>&#x5206;&#x5E03;&#x5F0F;&#x7F51;&#x72B6;&#x8DEF;&#x7531;&#xFF0C;&#x907F;&#x514D;&#x4F20;&#x7EDF; VPN &#x65B9;&#x6848;&#x91CC;&#x4E2D;&#x5FC3;&#x670D;&#x52A1;&#x5668;&#x9AD8;&#x8D1F;&#x8F7D;&#x548C;&#x5355;&#x70B9;&#x6545;&#x969C;&#xFF1B;</li>
+<li>&#x5360;&#x7528;&#x7684;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#x5C0F;&#xFF0C;&#x9002;&#x7528;&#x8D44;&#x6E90;&#x53D7;&#x9650;&#x7684;&#x8BBE;&#x5907;&#xFF1B;</li>
+<li>&#x5BF9;&#x4E8E;&#x5E94;&#x7528;&#x6765;&#x8BF4;&#x4E0D;&#x9700;&#x8981;&#x989D;&#x5916;&#x5173;&#x6CE8;&#xFF0C;&#x80FD;&#x611F;&#x53D7;&#x5230;&#x7684;&#x5C31;&#x662F;&#x7CFB;&#x7EDF;&#x91CC;&#x591A;&#x4E86;&#x4E2A;&#x7F51;&#x7EDC;&#x8BBE;&#x5907;(&#x865A;&#x62DF;&#x7F51;&#x5361;&#xFF09;&#xFF1B;</li>
+<li>&#x901A;&#x8BAF;&#x652F;&#x6301;&#x52A0;&#x5BC6;&#x3001;&#x538B;&#x7F29;&#xFF0C;&#x652F;&#x6301;&#x53C2;&#x6570;&#x9009;&#x62E9;&#xFF1B;</li>
+<li>&#x5185;&#x7F51;&#x7A7F;&#x900F;&#xFF08;NAT&#xFF09;&#x7B80;&#x5355;&#x65B9;&#x4FBF;&#xFF1B; </li>
+<li>&#x8DE8;&#x5E73;&#x53F0;&#xFF1A;&#x652F;&#x6301;&#x5E38;&#x89C1;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3001;&#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#xFF08;ipv4+ipv6&#xFF09;&#xFF0C;&#x9002;&#x7528;&#x5E7F;&#x6CDB;&#xFF1B;</li>
+<li>&#x652F;&#x6301;&#x6865;&#x63A5;&#x4EE5;&#x592A;&#x7F51;&#xFF1B;</li>
+</ul>
+<h2 id="&#x5206;&#x5E03;&#x5F0F;&#x7F51;&#x72B6;&#x8DEF;&#x7531;">&#x5206;&#x5E03;&#x5F0F;&#x7F51;&#x72B6;&#x8DEF;&#x7531;</h2>
+<p>&#x3000;&#x3000;&#x4E0E;&#x4F20;&#x7EDF;VPN&#x65B9;&#x6848;&#x6BD4;&#x8F83;&#xFF0C;tinc&#x6700;&#x5927;&#x7684;&#x7279;&#x70B9;&#x662F;&#x5206;&#x5E03;&#x5F0F;&#x3001;&#x57FA;&#x4E8E;&#x7F51;&#x72B6;&#x7ED3;&#x6784;&#x7684;&#x7F51;&#x7EDC;&#x8DEF;&#x7531;&#x3002;&#x57FA;&#x4E8E;P2P&#x7684;&#x6280;&#x672F;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6D41;&#x91CF;&#x76F4;&#x63A5;&#x5230;&#x8FBE;&#x76EE;&#x6807;&#x673A;&#x5668;&#xFF0C;&#x800C;&#x4E0D;&#x50CF;&#x4F20;&#x7EDF;VPN &#x90A3;&#x6837;&#x5FC5;&#x987B;&#x7ECF;&#x8FC7;&#x4E2D;&#x95F4;&#x7684;&#x670D;&#x52A1;&#x7AEF;&#x3002;</p>
+<h2 id="&#x8DE8;&#x5E73;&#x53F0;">&#x8DE8;&#x5E73;&#x53F0;</h2>
+<p>&#x3000;&#x3000;&#x652F;&#x6301;&#x5927;&#x90E8;&#x5206;&#x5E38;&#x89C1;&#x5E73;&#x53F0;&#x4E0E;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3002;&#x5305;&#x62EC; Windows&#x3001;Mac OS X&#x3001;Linux&#x3001;&#x5B89;&#x5353;&#x3001;iOS&#x3001;OpenWrt&#x7B49;&#x3002;&#x8BE6;&#x7EC6;&#x652F;&#x6301;&#x5217;&#x8868;&#x53EF;&#x4EE5;&#x53C2;&#x89C1;&#x5B98;&#x7F51;&#xFF0C;&#x70B9;&#x8FD9;&#x91CC;&#x6253;&#x5F00; <a href="https://www.tinc-vpn.org&#x3002;&#x652F;&#x6301;ipv4&#x3001;ipv6&#xFF0C;&#x9002;&#x7528;&#x5E7F;&#x6CDB;&#x3002;" target="_blank">https://www.tinc-vpn.org&#x3002;&#x652F;&#x6301;ipv4&#x3001;ipv6&#xFF0C;&#x9002;&#x7528;&#x5E7F;&#x6CDB;&#x3002;</a></p>
+<h2 id="&#x52A0;&#x5BC6;&#x8BA4;&#x8BC1;&#x538B;&#x7F29;">&#x52A0;&#x5BC6;/&#x8BA4;&#x8BC1;/&#x538B;&#x7F29;</h2>
+<p>tinc &#x7F51;&#x7EDC;&#x4E2D;&#x6570;&#x636E;&#x901A;&#x8BAF;&#x52A0;&#x5BC6;&#x53EF;&#x9760;&#xFF0C;&#x540C;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x7684;&#x65B9;&#x5F0F;&#x6309;&#x9700;&#x8FDB;&#x884C;&#x5B9A;&#x5236;&#x3002;</p>
+<h2 id="&#x5185;&#x7F51;&#x7A7F;&#x900F;&#xFF08;nat&#xFF09;">&#x5185;&#x7F51;&#x7A7F;&#x900F;&#xFF08;NAT&#xFF09;</h2>
+<p>&#x652F;&#x6301;&#x5404;&#x79CD;&#x5E38;&#x89C1;&#x7F51;&#x7EDC;&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x5185;&#x7F51;&#x7A7F;&#x900F;&#x3002;</p>
+<h2 id="&#x591A;&#x79CD;&#x6A21;&#x5F0F;">&#x591A;&#x79CD;&#x6A21;&#x5F0F;</h2>
+<p>&#x652F;&#x6301; router&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;&#x3001;switch&#x3001;hub &#x4E09;&#x79CD;&#x6A21;&#x5F0F;&#x3002;&#x5176;&#x4E2D; router &#x6A21;&#x5F0F;&#x5E94;&#x7528;&#x7684;&#x8F83;&#x4E3A;&#x5E7F;&#x6CDB;&#xFF0C;router &#x6A21;&#x5F0F;&#x5BF9;&#x5E94;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x4EC5;&#x8F6C;&#x53D1;IP&#x62A5;&#x6587;&#xFF0C;&#x56E0;&#x6B64;&#x6548;&#x7387;&#x76F8;&#x5BF9;&#x4E5F;&#x8F83;&#x9AD8;&#x3002;switch &#x6A21;&#x5F0F;&#x5BF9;&#x5E94;&#x4EA4;&#x6362;&#x673A;&#x4E00;&#x822C;&#x5E94;&#x7528;&#x4E8E;&#x5C06;&#x591A;&#x4E2A;&#x4EE5;&#x592A;&#x7F51;&#x7EDC;&#x6865;&#x63A5;&#x3002;hub &#x4E00;&#x822C;&#x4E0D;&#x4F7F;&#x7528;&#x4E86;&#x3002; </p>
+<h2 id=""><!--如何使用--></h2>
+<!--tinc 是个对等的网络，没有 server 和 client 之分，每个连接的设备都视为一个主机。各台机器上的配置文件都差不多。对于普通使用者来说，tinc的使用和其他软件并没有太大的不同。一般下面几个步骤就足够了：-->
+<!--安装，配置，运行-->
+<!--1、安装-->
+<!--tinc 是跨平台的应用，一般常见的平台都有现成的预编译软件可以直接使用。对于普通用户来说使用预编译的版本即可，即使不是最新版本作为个人使用也是足够的。-->
+<!--如果您有需要自己编译，那么需要具备配置内核、编译软件等相关知识。您可以参阅官网或者本手册的进阶部分以获得更进一步的信息。-->
+<!--2、配置-->
+<!--tinc有着自己的配置文件结构、可配置项非常多。不用担心，只要了解最基本的就可以了，大部分使用默认参数即可。-->
+<!--本节说明最基本的配置文件，如果有进一步的需求，请参阅官网或者本手册的进阶部分以获得更进一步的信息。-->
+<!--tinc 基本配置文件说明：-->
+<!--tinc 的配置文件一般是一个目录，由一系列文件组成。一个最简单的配置目录结构是酱紫的（括号里面的是注释和说明）：-->
+<!--注意：脚本需要可执行的权限。对于 Unix Like 系统，需要 chmod+x，对于windows系统，需要增加 “.bat”后缀名。-->
+<pre><code>$TINC_CONFIG_DIR
+     &#x2514;&#x2500;&#x2500; NETNAME_1 &#xFF08;tinc &#x7F51;&#x7EDC;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x5728;&#x542F;&#x52A8; tinc &#x7684;&#x65F6;&#x5019;&#x4F5C;&#x4E3A;&#x6807;&#x8BC6;&#xFF09;
+             &#x251C;&#x2500;&#x2500; hosts &#xFF08;&#x653E;&#x7F6E;&#x672C;&#x8282;&#x70B9;&#x8981;&#x8FDE;&#x63A5;&#x5230;&#x7684;&#x5404;&#x8282;&#x70B9;&#x7684;&#x57FA;&#x672C;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF09;
+             &#x2502;   &#x251C;&#x2500;&#x2500; HOST_1 &#xFF08;&#x4E3B;&#x673A;1&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF09;
+             &#x2502;   &#x251C;&#x2500;&#x2500; HOST_2 &#xFF08;&#x4E3B;&#x673A;2&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF09;
+             &#x2502;   &#x251C;&#x2500;&#x2500; ...
+             &#x2502;   &#x2514;&#x2500;&#x2500; HOST_n &#xFF08;&#x8282;&#x70B9;n&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF09;
+             &#x251C;&#x2500;&#x2500; rsa_key.priv &#xFF08;&#x7531; tincd &#x751F;&#x6210;&#x7684;&#x672C;&#x4E3B;&#x673A;&#x4F7F;&#x7528;&#x7684;&#x975E;&#x5BF9;&#x79F0;&#x79C1;&#x94A5;&#xFF0C;&#x52A0;&#x5BC6;&#x901A;&#x8BAF;&#x4F7F;&#x7528;&#xFF09;
+             &#x251C;&#x2500;&#x2500; tinc.conf &#xFF08;tinc &#x7F51;&#x7EDC;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF09;
+             &#x251C;&#x2500;&#x2500; tinc-down &#xFF08;&#x5173;&#x95ED;&#x8BE5;&#x7F51;&#x7EDC;&#x65F6;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;&#x6267;&#x884C;&#x7684;&#x811A;&#x672C;&#xFF0C;&#x53EF;&#x9009;&#xFF09;
+             &#x2514;&#x2500;&#x2500; tinc-up &#xFF08;&#x542F;&#x52A8;&#x8BE5;&#x7F51;&#x7EDC;&#x65F6;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;&#x6267;&#x884C;&#x7684;&#x811A;&#x672C;&#xFF0C;&#x53EF;&#x9009;&#xFF09;
+</code></pre><!--最简单的配置文件是酱紫的-->
+<!--tinc.conf-->
+<pre><code>Name = node_010_034_034_102
+AddressFamily = ipv4
+Cipher = aes-256-cbc
+Digest = SHA512
+#Interface = /dev/tap0
+Device = /dev/tap0
+
+Port = 34
+
+Compression = 11
+
+ConnectTo = node_010_034_000_001
+</code></pre><!--rsa_key.priv-->
+<!--tinc-down-->
+<pre><code>#!/bin/sh
+
+ifconfig $INTERFACE down
+</code></pre><!--tinc-up-->
+<pre><code>#!/bin/sh
+
+#ifconfig $INTERFACE up
+ifconfig $INTERFACE 10.34.34.102 netmask 255.255.0.0
+</code></pre><!--/hosts/自己节点的描述文件和要connectto的主机描述文件。-->
+<ul>
+<li><!--配置文件-->
+<!--[tinc.conf 配置文件说明](todo.md)-->
+<ul>
+<li><!--[host 配置项目说明](todo.md)-->
 </li>
 </ul>
-<!--分布式的，基于网状结构的网络路由，基于P2P的技术，可以实现流量直接到达目标机器，而不像传统VPN 那样必须经过中间的服务端。-->
-<!--When one introduces encryption, we can form a true VPN. Other people may see encrypted traffic, but if they don’t know how to decipher it (they need to know the key for that), they cannot read the information that flows through the VPN. This is what tinc was made for.-->
-<p>&#x6CE8;&#xFF1A;</p>
-<p>&#x4E0E;tinc&#x7C7B;&#x4F3C;&#x7684;&#x8F6F;&#x4EF6;&#x8FD8;&#x6709; N2N&#x3001;PeerVPN&#x3001;ZeroTire&#x7B49;</p>
+</li>
+<li><!--[生成秘钥，传递公钥](todo.md)-->
+</li>
+<li><!--[运行软件](todo.md)-->
+</li>
+<li><!--[检查生效](todo.md)-->
+</li>
+<li><!--[完成](todo.md)-->
+</li>
+</ul>
+<h2 id=""><!--实例--></h2>
+<!--上面说了很多理论的东西，任何说教都比不上实践。下面结合实例，跟我一起组建属于自己的tinc网络。-->
+<!--这是作者日常使用的tinc网络。详细说明了作者是如何开始设计和搭建一个tinc网络。包括了目前可以看到的大多数网络环境和应用场景，目前已经稳定运行了超过3年。读者可以按照自己的需要，从中截取一部分。-->
+<!--规划思路和前提-->
+<!--支持windows mac linux（Ubuntu/centOS）openwrt 群辉。-->
+<!--稳定优先，可以接受一定的成本，但要尽可能的降低。-->
+<!--tinc支持多种模式，上述有。使用用交换机模式，可以将多个以太网段连成一个以太网，可以DHCP什么的。但需要转发很多广播包，效率上不如路由器模式。对于我的场景来说，没有这个必要，而且主机少，手工指定所有机器的IP配置并不麻烦，而且这样比较可控，通讯报文和效率都比较高。所以，选择默认的 router 路由模式。-->
+<!--Tinc 有两个大版本。1.0为稳定版，1.1开发版。核心功能1.0版都有了，具体的差别参见官网。本着生产系统稳定优先原则，选择1.0版。-->
+<!--0、最终的网络示意图，基本上常见的网络环境都有了，读者可以按照顺序来读，或者直接跳到对应的章节截取需要的网络部分即可。我想，我这个环境覆盖了90%的使用场景，读者照葫芦画瓢就可以了。-->
+<!--1、安装一台核心tinc主机。这台主机需要具有公网ip，打开tinc使用的端口，外部能直接访问。对于tinc网络中的其他设备而言，只要能上网，能联通这台核心主机的对应端口，就可以联通tinc网络。按个人习惯，IP 定为 10.0.0.254，C类网络（可容纳255台机器），网络掩码为 255.255.255.0。-->
+<!--可以购买云主机/VPS 或者具有公网IP的家里的路由器也可以。出于简单稳定的需要，我选择云主机，阿里云。-->
+<!--我的选择，买一台云主机用以运行tinc。不需要太高的配置，个人普通使用1核1GB内存20G普通云盘就可以了。带宽方面按照自己的流量来选择，一般有按使用付费和固定带宽两种模式。我喜欢简单的付费模式，带宽要求也不大，因此选择的是1M固定带宽。这样的配置，目前阿里云的价格是人民币65左右，一次性时间长一点付费还有优惠。我是一次性付了N年，差不多涵盖了有生之年……扔那里慢慢用就好了。-->
+<!--安全一点，两台做个备份好一些。但实际使用中，本身这台机器的负载就不大，而且阿里云提供99%以上的可靠性。基本不可能出问题，网络出问题忍一下不是什么大事，主机出了问题，只要配置文件备份好了，重新安装也就是半小时的事情。又不是什么大不了的环境，就不杀鸡用牛刀了。-->
+<!--安装：-->
+<!--sudo apt-get install tinc -y-->
+<!--ubuntu 的配置文件夹为   /etc/tinc-->
+<!--生成配置文件-->
+<!--生成秘钥-->
+<!--配置为默认运行-->
+<!--/etc/tinc/nets.boot-->
+<!--然后重新启动--> 
+<!--sudo reboot-->
+<!--2、配置常用操作机器（win10）-->
+<!--先安装驱动-->
+<!--然后复制就好了。-->
+<!--同样的 配置-->
+<!--本机启动tinc-->
+<!--然后记得hosts里面加上核心机器的描述文件-->
+<!--然后将本机的描述文件复制到 核心机器上-->
+<!--等一下，或者重新启动 service tinc restart-->
+<!--然后 ping ……-->
+<!--搞定了。-->
+<!--3、配置常用开发机（mac）-->
+<!--4、配置常用测试机（LINUX）-->
+<!--5、配置虚拟机（virtualbox等）-->
+<!--6、配置路由器（openwrt）-->
+<!--7、配置阿里云专有网络，仅有内网IP的机器-->
+<!--8、配置安卓手机-->
+<!--9、配置苹果手机-->
+<!--10、常用便携设备（便携路由）-->
+<h2 id=""><!--进阶--></h2>
+<!--进一步的资料-->
+<!--HOST MAIN SCRIPT-->
+<h2 id=""><!--tinc网络实际使用来做什么--></h2>
+<!--远程控制，ssh 远程桌面 VNC-->
+<!--代理转发-->
+<p>&#x200B;    <!--个人有时候做些项目，需要。例如开发微信，给别人看产品样品，--></p>
+<p>&#x200B;    <!--通过代理访问受限资源--></p>
+<!--个人/小型公司的代码管理等等-->
+<!--连接多个以太网段形成1个网络-->
+<!--安全、管理和运维-->
+<p>&#x200B;    <!--秘钥长度的选择--></p>
+<p>&#x200B;    <!--压缩的选择--></p>
+<p>&#x200B;    <!--主机名用域名还是写死IP地址？--></p>
+<p><strong>&#x7248;&#x672C;&#x548C;&#x6A21;&#x5F0F;</strong>&#xFF1A;</p>
+<p>&#x590D;&#x5236;&#x4EE3;&#x7801;</p>
+<p>&#x6CE8;&#xFF1A;&#x67D0;&#x4E9B;&#x7CFB;&#x7EDF;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x70B9;&#x5DEE;&#x5F02;&#xFF0C;&#x4F46;&#x5DEE;&#x4E0D;&#x591A;&#x5C31;&#x8FD9;&#x4E2A;&#x610F;&#x601D;&#xFF0C;&#x4E07;&#x53D8;&#x4E0D;&#x79BB;&#x5176;&#x5B97;&#xFF0C;&#x5404;&#x4F4D;&#x81EA;&#x5DF1;&#x878D;&#x4F1A;&#x8D2F;&#x901A;&#x4E00;&#x4E0B;&#x3002;</p>
+<p>&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<p>&#x57FA;&#x672C;&#x9700;&#x6C42;&#xFF1A;</p>
+<p>&#x5C06;&#x76EE;&#x524D;&#x5E38;&#x7528;&#x7684;&#x673A;&#x5668;&#x7528; tinc &#x7EC4;&#x6210;&#x4E00; &#x4E2A;VPN&#xFF0C;&#x865A;&#x62DF;&#x4E13;&#x7528;&#x7F51;&#x7EDC;&#x547D;&#x540D;&#x4E3A; vnet34&#x3002;VPN &#x7F51;&#x7EDC;&#x5730;&#x5740;&#x4E3A; 10.10.0.0/255.255.0.0&#xFF08;&#x6211;&#x8D2A;&#x65B9;&#x4FBF;&#x7528;&#x7684;B&#x7C7B;&#x5730;&#x5740;&#xFF0C;&#x5176;&#x5B9E;&#x4E00;&#x822C;&#x6765;&#x8BF4;C&#x7C7B;&#x591F;&#x7528;&#x4E86;&#xFF0C;255&#x4E2A;&#x5462;&#xFF09;&#x3002;</p>
+<p>&#x7F51;&#x7EDC;&#x62D3;&#x6251;&#xFF1A;</p>
+<p>&#x6211;&#x6574;&#x7406;&#x4E86;&#x4E00;&#x4E0B;&#x6211;&#x9700;&#x8981;&#x5904;&#x7406;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="http://www.meishixiazheteng.com/data/attachment/forum/201806/13/152624clmbpck8k83thi1m.png" alt="img"> </p>
+<p>A &#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x7684;&#x673A;&#x5668;&#xFF0C;&#x7ED1;&#x5B9A;&#x4E86;&#x516C;&#x7F51;IP&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x516C;&#x7F51;&#x3002;tinc &#x7F51;&#x7EDC;&#x91CC;&#x7684;&#x5176;&#x4ED6;&#x8BBE;&#x5907;&#x9700;&#x80FD;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x8FD9;&#x4E9B;&#x8BBE;&#x5907;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x6BCF;&#x53F0;&#x8BBE;</p>
+<p>&#x5907;&#x4E0A;&#x5B89;&#x88C5; tinc&#x3002;</p>
+<p>B &#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x7684;&#x673A;&#x5668;&#xFF0C;&#x6CA1;&#x6709;&#x7ED1;&#x5B9A;&#x516C;&#x7F51;IP&#x3002;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x516C;&#x7F51;&#x3001;&#x4F46;&#x5916;&#x90E8;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x8BE5;&#x673A;&#x5668;&#x3002;tinc &#x7F51;&#x7EDC;&#x91CC;&#x7684;&#x5176;&#x4ED6;&#x8BBE;&#x5907;&#x9700;&#x80FD;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x8FD9;&#x4E9B;&#x8BBE;&#x5907;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x6BCF;&#x53F0;&#x8BBE;&#x5907;&#x4E0A;&#x5B89;&#x88C5; tinc&#x3002;</p>
+<p>C &#x4F4D;&#x4E8E;&#x8DEF;&#x7531;&#x5668;&#x540E;&#x9762;&#x7684;&#x8BBE;&#x5907;&#xFF0C;tinc &#x7F51;&#x7EDC;&#x91CC;&#x7684;&#x8BBE;&#x5907;&#x9700;&#x80FD;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x8FD9;&#x4E9B;&#x8BBE;&#x5907;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x6BCF;&#x53F0;&#x8BBE;&#x5907;&#x4E0A;&#x5B89;&#x88C5; tinc&#x3002;</p>
+<p>D &#x4F4D;&#x4E8E;&#x8DEF;&#x7531;&#x5668;&#x540E;&#x9762;&#x7684;&#x8BBE;&#x5907;&#xFF0C;tinc &#x7F51;&#x7EDC;&#x91CC;&#x7684;&#x8BBE;&#x5907;&#x65E0;&#x9700;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x8FD9;&#x4E9B;&#x8BBE;&#x5907;&#xFF0C;&#x8BBE;&#x5907;&#x4E0A;&#x4E0D;&#x9700;&#x5B89;&#x88C5;&#xFF0C;&#x53EA;&#x9700;&#x5728;&#x8DEF;&#x7531;&#x4E0A;&#x5B89;&#x88C5; tinc &#x5373;&#x53EF;&#x3002;</p>
+<p>C &#x548C; D &#x6709;&#x70B9;&#x8C61;&#xFF0C;&#x5728;&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x6DF7;&#x7528;&#x7684;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x6211;&#x7684;&#x5DE5;&#x4F5C;&#x673A;&#x5668;&#x4E0A;&#x8DD1;&#x4E86;&#x4E0D;&#x5C11;&#x865A;&#x62DF;&#x673A;&#x9700;&#x8981;&#x88AB;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#xFF0C;&#x5C31;&#x5728;&#x8FD9;&#x4E9B;&#x673A;&#x5668;&#x4E0A;&#x90FD;&#x5B89;&#x88C5;&#x4E86; tinc&#x3002;&#x800C;&#x5BF9;&#x4E8E;&#x6709;&#x4E9B;&#x4EBA;&#x6765;&#x8BF4;&#xFF0C;&#x4ED6;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x80FD;&#x8BBF;&#x95EE; tinc &#x7F51;&#x7EDC;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x8FD8;&#x7279;&#x559C;&#x6B22;&#x778E;&#x6298;&#x817E;&#x673A;&#x5668;&#xFF08;&#x65F6;&#x4E0D;&#x65F6;&#x7684;&#x91CD;&#x88C5;&#x4E00;&#x4E0B;&#x5565;&#x7684;&#xFF09;&#x3002;&#x6211;&#x8981;&#x662F;&#x5728;&#x4ED6;&#x4EEC;&#x7684;&#x673A;&#x5668;&#x8BBE;&#x5907;&#x4E0A;&#x5B89;&#x88C5; tinc &#x90A3;&#x771F;&#x662F;&#x70E6;&#x900F;&#x4E86;&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5728;&#x8DEF;&#x7531;&#x5668;&#x4E0A;&#x88C5;&#x4E0A;&#xFF0C;&#x8BA9;&#x4ED6;&#x4EEC;&#x901A;&#x8FC7;&#x8DEF;&#x7531;&#x900F;&#x660E;&#x4EE3;&#x7406;&#x5230; tinc &#x7F51;&#x7EDC;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
 
                                 
                                 </section>
@@ -260,7 +410,7 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 介绍">
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 介绍 / 作者序">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -276,14 +426,23 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"tinc 简介","level":"1.2","depth":1,"next":{"title":"基础知识","level":"1.3","depth":1,"path":"basicknowledge/basicknowledge.md","ref":"basicknowledge/basicknowledge.md","articles":[]},"previous":{"title":"介绍","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Chanix","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"tinc 实操指南 （TincCookbook）","gitbook":"*"},"file":{"path":"Introduction/Introduction.md","mtime":"2019-03-15T03:55:16.082Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-15T06:33:55.365Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"tinc 简介","level":"1.2","depth":1,"next":{"title":"基础知识","level":"1.3","depth":1,"path":"basicknowledge/basicknowledge.md","ref":"basicknowledge/basicknowledge.md","articles":[]},"previous":{"title":"介绍 / 作者序","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","terminal","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"terminal":{"copyButtons":true,"fade":true,"style":"flat"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Chanix","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"tinc 简明教程 （TincCookbook）","gitbook":"*"},"file":{"path":"Introduction/Introduction.md","mtime":"2019-03-18T03:35:32.545Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-18T03:35:35.216Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
 
         
+    
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-terminal/plugin.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
@@ -313,6 +472,8 @@
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
 
     </body>
 </html>

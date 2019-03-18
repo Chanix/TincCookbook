@@ -1,4 +1,8 @@
 {
-    "title": "tinc 实操指南 （TincCookbook）",
-    "author": "Chanix"
+    "title": "tinc 简明教程 （TincCookbook）",
+    "author": "Chanix",
+    "plugins": [
+        "mermaid-gb3",
+        "terminal"
+    ]
 }
