@@ -29,3 +29,6 @@ HOST MAIN SCRIPT
 
 
 
+通过工具，例如  ansible 简化客户端管理
+
+通过NAT，简化对客户端的干预
