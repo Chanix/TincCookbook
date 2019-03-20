@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>基础知识 · tinc 组网简明教程 （TincCookbook）</title>
+        <title>分布式网状架构 · tinc 组网简明教程 （TincCookbook）</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="install.html" />
+    <link rel="next" href="../basicknowledge/" />
     
     
-    <link rel="prev" href="../introduction/mesh.html" />
+    <link rel="prev" href="rsaandzip.html" />
     
 
     </head>
@@ -110,9 +110,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../Introduction/">
+        <li class="chapter " data-level="1.2" data-path="./">
             
-                <a href="../Introduction/">
+                <a href="./">
             
                     
                     tinc 简介
@@ -124,9 +124,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../introduction/rsaandzip.html">
+        <li class="chapter " data-level="1.2.1" data-path="rsaandzip.html">
             
-                <a href="../introduction/rsaandzip.html">
+                <a href="rsaandzip.html">
             
                     
                     加密 / 认证 / 压缩
@@ -137,9 +137,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../introduction/mesh.html">
+        <li class="chapter active" data-level="1.2.2" data-path="mesh.html">
             
-                <a href="../introduction/mesh.html">
+                <a href="mesh.html">
             
                     
                     分布式网状架构
@@ -155,9 +155,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="../basicknowledge/">
             
-                <a href="./">
+                <a href="../basicknowledge/">
             
                     
                     基础知识
@@ -169,9 +169,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="install.html">
+        <li class="chapter " data-level="1.3.1" data-path="../basicknowledge/install.html">
             
-                <a href="install.html">
+                <a href="../basicknowledge/install.html">
             
                     
                     安装
@@ -182,9 +182,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="config.html">
+        <li class="chapter " data-level="1.3.2" data-path="../basicknowledge/config.html">
             
-                <a href="config.html">
+                <a href="../basicknowledge/config.html">
             
                     
                     配置
@@ -195,9 +195,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="rsakey.html">
+        <li class="chapter " data-level="1.3.3" data-path="../basicknowledge/rsakey.html">
             
-                <a href="rsakey.html">
+                <a href="../basicknowledge/rsakey.html">
             
                     
                     秘钥
@@ -208,9 +208,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="run.html">
+        <li class="chapter " data-level="1.3.4" data-path="../basicknowledge/run.html">
             
-                <a href="run.html">
+                <a href="../basicknowledge/run.html">
             
                     
                     运行
@@ -221,9 +221,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="check.html">
+        <li class="chapter " data-level="1.3.5" data-path="../basicknowledge/check.html">
             
-                <a href="check.html">
+                <a href="../basicknowledge/check.html">
             
                     
                     检查
@@ -366,7 +366,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >基础知识</a>
+        <a href=".." >分布式网状架构</a>
     </h1>
 </div>
 
@@ -381,30 +381,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x57FA;&#x7840;&#x77E5;&#x8BC6;">&#x57FA;&#x7840;&#x77E5;&#x8BC6;</h1>
-<p>&#x3000;&#x3000;&#x5BF9;&#x4E8E;&#x672C;&#x7AE0;&#x8282;&#xFF0C;&#x5927;&#x81F4;&#x4E86;&#x89E3;&#x6B65;&#x9AA4;&#x6982;&#x5FF5;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;&#x7740;&#x91CD;&#x9700;&#x8981;&#x7406;&#x89E3;&#x7684;&#x7684;&#x662F;&#x914D;&#x7F6E;&#x8FD9;&#x4E00;&#x8282;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x6709;&#x4E2A;&#x6982;&#x5FF5;&#x5373;&#x53EF;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4F1A;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x5177;&#x4F53;&#x7684;&#x6B65;&#x9AA4;&#x3002;</p>
-<ol>
-<li>&#x5B89;&#x88C5;<blockquote>
-<p>&#x672C;&#x8282;&#x7B80;&#x8981;&#x4ECB;&#x7ECD; tinc &#x7684;&#x57FA;&#x7840;&#x5B89;&#x88C5;&#x65B9;&#x6CD5;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x5B9E;&#x4F8B;&#x4E2D;&#x4F1A;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x5404;&#x79CD;&#x5E73;&#x53F0;&#x7684;&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x3002;</p>
-</blockquote>
-</li>
-<li>&#x914D;&#x7F6E;<blockquote>
-<p>&#x672C;&#x8282;&#x7B80;&#x8981;&#x8BF4;&#x660E;&#x4E86; tinc &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x57FA;&#x672C;&#x89C4;&#x5219;&#xFF0C;&#x5305;&#x62EC;&#x547D;&#x540D;&#x89C4;&#x8303;&#x548C;&#x5E38;&#x7528;&#x53C2;&#x6570;&#x3002;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;&#x6700;&#x6700;&#x57FA;&#x672C;&#x7684;&#x914D;&#x7F6E;&#x6A21;&#x677F;&#x4E0B;&#x8F7D;&#xFF0C;&#x7ED3;&#x5408;&#x81EA;&#x8EAB;&#x60C5;&#x51B5;&#x7A0D;&#x4F5C;&#x4FEE;&#x6539;&#x5373;&#x53EF;&#x4F7F;&#x7528;&#x3002;</p>
-</blockquote>
-</li>
-<li>&#x79D8;&#x94A5;<blockquote>
-<p>&#x672C;&#x8282;&#x7B80;&#x8981;&#x4ECB;&#x7ECD;&#x79D8;&#x94A5;&#xFF0C;&#x5E76;&#x8BF4;&#x660E;&#x79D8;&#x94A5;&#x7684;&#x751F;&#x6210;&#x3001;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x3002;</p>
-</blockquote>
-</li>
-<li>&#x8FD0;&#x884C;<blockquote>
-<p>&#x672C;&#x8282;&#x7B80;&#x8981;&#x4ECB;&#x7ECD;tinc&#x7684;&#x8FD0;&#x884C;&#x65B9;&#x5F0F;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x5B9E;&#x4F8B;&#x4E2D;&#x4F1A;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x5404;&#x79CD;&#x5E73;&#x53F0;&#x7684;&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#x3002;</p>
-</blockquote>
-</li>
-<li>&#x68C0;&#x67E5;<blockquote>
-<p>&#x5982;&#x4F55;&#x5728;&#x642D;&#x5EFA;&#x5B8C;&#x6210;&#x540E;&#x786E;&#x8BA4;&#x7F51;&#x7EDC;&#x901A;&#x8BAF;&#x6B63;&#x5E38;&#xFF0C;&#x68C0;&#x67E5;&#x6210;&#x529F;&#x540E;&#x5219;tinc&#x7F51;&#x7EDC;&#x8FD0;&#x884C;&#x6B63;&#x5E38;&#x3002;</p>
-</blockquote>
-</li>
-</ol>
+                                <h1 id="&#x5206;&#x5E03;&#x5F0F;&#x7F51;&#x72B6;&#x67B6;&#x6784;">&#x5206;&#x5E03;&#x5F0F;&#x7F51;&#x72B6;&#x67B6;&#x6784;</h1>
+<p><div class="mermaid">
+graph BT
+A --&gt; Z;
+B --&gt; Z;
+C --&gt; Z;
+D --&gt; C;
+</div>
+&#x3000;&#x3000;&#x5047;&#x8BBE;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x73AF;&#x5883;&#xFF0C;&#x5982;&#x4E0A;&#x56FE;&#x3002;</p>
+<p>&#x3000;&#x3000;&#x5148;&#x4EC5;&#x8003;&#x8651;&#x53EA;&#x6709;&#x4E09;&#x53F0;&#x4E3B;&#x673A; A&#x3001;B&#x3001;Z &#x7684;&#x60C5;&#x51B5;&#x3002;&#x4E3B;&#x673A; Z &#x662F;&#x4E00;&#x53F0;&#x5177;&#x6709;&#x516C;&#x7F51; IP &#x7684;&#x4E3B;&#x673A;&#xFF0C;&#x4F4D;&#x4E8E;&#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x3002;&#x4E3B;&#x673A; A &#x4E3B;&#x52A8;&#x8FDE;&#x63A5; Z&#xFF0C;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#xFF1B;&#x4E3B;&#x673A; B &#x4E5F;&#x4E3B;&#x52A8;&#x8FDE;&#x63A5; Z&#xFF0C;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x3002;&#x5219;&#xFF0C;&#x5F53; A &#x4E0E; B &#x901A;&#x8BAF;&#x65F6;&#xFF0C;A &#x4E0E; B &#x4E4B;&#x95F4;&#x5C06;&#x5C3D;&#x91CF;&#x5EFA;&#x7ACB;&#x76F4;&#x63A5;&#x7684;&#x8FDE;&#x63A5;&#x8FDB;&#x884C;&#x901A;&#x8BAF;&#xFF0C;&#x6D41;&#x91CF;&#x4E0D;&#x7ECF;&#x8FC7; Z&#x3002;&#x53EA;&#x6709;&#x5F53; A&#x3001;B &#x4E4B;&#x95F4;&#x65E0;&#x6CD5;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x624D;&#x901A;&#x8FC7; Z &#x8FDB;&#x884C;&#x4E2D;&#x7EE7;&#x548C;&#x8F6C;&#x53D1;&#xFF08;&#x7531;&#x4E8E;&#x5185;&#x7F51;&#x7A7F;&#x900F;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x76F8;&#x5BF9;&#x8F83;&#x5C11;&#xFF09;&#x3002;</p>
+<p>&#x3000;&#x3000;&#x6269;&#x5C55;&#x4E00;&#x4E0B;&#xFF0C;&#x52A0;&#x5165;&#x4E3B;&#x673A; C&#xFF0C;&#x4E3B;&#x673A; C &#x4E5F;&#x4E3B;&#x52A8;&#x8FDE;&#x63A5; Z&#x3002;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x4EE5;&#x540E;&#x5373;&#x4F7F; A B &#x6CA1;&#x6709;&#x914D;&#x7F6E; C &#x7684;&#x4E3B;&#x673A;&#x63CF;&#x8FF0;&#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x8FD0;&#x884C;&#x4E2D;&#x4E5F;&#x4F1A;&#x81EA;&#x52A8;&#x53D1;&#x73B0;&#x548C;&#x5B9A;&#x4F4D;&#x3002;&#x5F53; A&#x3001;C &#x4E4B;&#x95F4;&#x901A;&#x8BAF;&#x65F6;&#xFF0C;&#x5C3D;&#x91CF;&#x76F4;&#x8FDE;&#xFF0C;&#x82E5;&#x5931;&#x8D25;&#x624D;&#x901A;&#x8FC7;&#x5176;&#x4ED6;&#x4E3B;&#x673A;&#x8FDB;&#x884C;&#x4E2D;&#x7EA7;&#x8F6C;&#x53D1;&#x3002;</p>
+<p>&#x3000;&#x3000;&#x7EE7;&#x7EED;&#x6269;&#x5C55;&#xFF0C;&#x52A0;&#x5165;&#x4E3B;&#x673A; D&#x3002;&#x4E3B;&#x673A; D &#x662F;&#x4E00;&#x53F0;&#x8BBF;&#x95EE;&#x53D7;&#x9650;&#x7684;&#x4E3B;&#x673A;&#xFF0C;&#x65E0;&#x6CD5;&#x4E0E; A&#x3001;B&#x3001;Z &#x76F8;&#x4E92;&#x8BBF;&#x95EE;&#x3002;&#x4F46; D &#x53EF;&#x4EE5;&#x4E0E; C &#x901A;&#x8BAF;&#x3002;&#x90A3;&#x4E48; D &#x901A;&#x8FC7;&#x4E3B;&#x52A8;&#x8FDE;&#x63A5; C&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x52A0;&#x5165;VPN&#x5E76;&#x6B63;&#x5E38;&#x8BBF;&#x95EE; A&#x3001;B&#x3001;Z&#x3002;&#x5F53; Z&#x3001;D &#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x901A;&#x8BAF;&#x65F6;&#x95F4;&#xFF0C;C &#x662F;&#x5B83;&#x4EEC;&#x6C9F;&#x901A;&#x7684;&#x6865;&#x6881;&#x3002;</p>
+<p>&#x3000;&#x3000;&#x518D;&#x6269;&#x5C55;&#x2026;&#x2026;
+&#x3000;&#x3000;&#x518D;&#x6269;&#x5C55;&#x2026;&#x2026;
+&#x3000;&#x3000;&#x518D;&#x6269;&#x5C55;&#x2026;&#x2026;</p>
+<p>&#x3000;&#x3000;&#x5F53; tinc VPN &#x7F51;&#x7EDC;&#x8FD0;&#x884C;&#x4E86;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x4EE5;&#x540E;&#xFF0C;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x4E0D;&#x65AD;&#x76F8;&#x4E92;&#x53D1;&#x73B0;&#x548C;&#x4EA4;&#x6362;&#x4E3B;&#x673A;&#x4FE1;&#x606F;&#xFF0C;&#x6784;&#x6210;&#x590D;&#x6742;&#x7684;&#x7F51;&#x72B6;&#x7ED3;&#x6784;&#x3002;&#x4E24;&#x4E2A;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x8BAF;&#x90FD;&#x5C3D;&#x91CF;&#x76F4;&#x63A5;&#x8FDE;&#x63A5;&#xFF0C;&#x6D41;&#x91CF;&#x4EC5;&#x5728;&#x4E24;&#x8005;&#x4E4B;&#x95F4;&#x53D1;&#x751F;&#x3002;&#x5982;&#x679C;&#x5B9E;&#x5728;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x8FDE;&#x63A5;&#xFF0C;&#x5219;&#x6570;&#x636E;&#x4F1A;&#x901A;&#x8FC7;&#x5176;&#x4ED6;&#x4E3B;&#x673A;&#xFF0C;&#x751A;&#x81F3;&#x662F;&#x591A;&#x4E2A;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x4E2D;&#x7EE7;&#x8F6C;&#x53D1;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5F53;&#x5176;&#x4E2D;&#x67D0;&#x4E2A;&#x4E3B;&#x673A;&#x51FA;&#x73B0;&#x6545;&#x969C;&#x65F6;&#xFF0C;&#x5176;&#x5F71;&#x54CD;&#x7684;&#x8303;&#x56F4;&#x662F;&#x6700;&#x5C0F;&#x5316;&#x7684;&#x3002;&#x5BF9;&#x4E8E;&#x4F7F;&#x7528;&#x8005;&#x6765;&#x8BF4;&#xFF0C;&#x60A8;&#x4E0D;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x5177;&#x4F53;&#x6570;&#x636E;&#x662F;&#x5982;&#x4F55;&#x5728;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x8DEF;&#x7531;&#x548C;&#x4F20;&#x8F93;&#xFF0C;tinc &#x4E3A;&#x60A8;&#x5C4F;&#x853D;&#x4E86;&#x8FD9;&#x4E00;&#x5207;&#xFF0C;&#x60A8;&#x6240;&#x611F;&#x77E5;&#x7684;&#x5C31;&#x662F;&#x201C;&#x76F4;&#x63A5;&#x901A;&#x8BAF;&#x201D;&#x3002;</p>
 
                                 
                                 </section>
@@ -432,12 +424,12 @@
 
             
                 
-                <a href="../introduction/mesh.html" class="navigation navigation-prev " aria-label="Previous page: 分布式网状架构">
+                <a href="rsaandzip.html" class="navigation navigation-prev " aria-label="Previous page: 加密 / 认证 / 压缩">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="install.html" class="navigation navigation-next " aria-label="Next page: 安装">
+                <a href="../basicknowledge/" class="navigation navigation-next " aria-label="Next page: 基础知识">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -448,7 +440,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"基础知识","level":"1.3","depth":1,"next":{"title":"安装","level":"1.3.1","depth":2,"path":"basicknowledge/install.md","ref":"basicknowledge/install.md","articles":[]},"previous":{"title":"分布式网状架构","level":"1.2.2","depth":2,"path":"introduction/mesh.md","ref":"introduction/mesh.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mermaid-gb3":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Chanix","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"tinc 组网简明教程 （TincCookbook）","gitbook":"*"},"file":{"path":"basicknowledge/README.md","mtime":"2019-03-20T04:13:02.608Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-20T06:37:33.016Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"分布式网状架构","level":"1.2.2","depth":2,"next":{"title":"基础知识","level":"1.3","depth":1,"path":"basicknowledge/README.md","ref":"basicknowledge/README.md","articles":[{"title":"安装","level":"1.3.1","depth":2,"path":"basicknowledge/install.md","ref":"basicknowledge/install.md","articles":[]},{"title":"配置","level":"1.3.2","depth":2,"path":"basicknowledge/config.md","ref":"basicknowledge/config.md","articles":[]},{"title":"秘钥","level":"1.3.3","depth":2,"path":"basicknowledge/rsakey.md","ref":"basicknowledge/rsakey.md","articles":[]},{"title":"运行","level":"1.3.4","depth":2,"path":"basicknowledge/run.md","ref":"basicknowledge/run.md","articles":[]},{"title":"检查","level":"1.3.5","depth":2,"path":"basicknowledge/check.md","ref":"basicknowledge/check.md","articles":[]}]},"previous":{"title":"加密 / 认证 / 压缩","level":"1.2.1","depth":2,"path":"introduction/rsaandzip.md","ref":"introduction/rsaandzip.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mermaid-gb3":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Chanix","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"tinc 组网简明教程 （TincCookbook）","gitbook":"*"},"file":{"path":"introduction/mesh.md","mtime":"2019-03-20T06:31:52.025Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-20T06:37:33.016Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

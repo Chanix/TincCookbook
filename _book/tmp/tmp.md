@@ -1,5 +1,155 @@
 # tinc 简介
 
+How to install tinc on Ubuntu 16.04
+
+核心tinc主机，我选择了阿里云。这台云主机购买了公网带宽，同时记得要开放tinc的端口。
+
+所有的其他主机都会主动 ConnectTo 这台主机。连上以后，tinc会进行其他主机的查找，秘钥的交换。在通讯时会尽可能的直接连接，所以这台机器的负载不会很高，带宽和流量也能尽量的减少。
+
+这台机器是我几年前配的机器了，使用的操作系统是Ubuntu 16.04 Server 64bit。一直很稳定，也懒得升级了。
+
+我们从新开始。重新安装系统，然后登陆。
+
+```/bin/bash
+# ==================================================
+# 定义变量                         
+# ==================================================
+MY_TINC_VPN_NAME=mytincvpn
+MY_TINC_VPN_HOME=/etc/tinc/${MY_TINC_VPN_NAME}
+MY_REAL_IP='111.222.333.444'
+MY_TINC_VPN_HOST_IP='10.0.0.254'
+MY_TINC_VPN_HOST_NAME=`echo host_${MY_TINC_VPN_HOST_IP} | sed 's/\\./_/g'`
+MY_TINC_SCRIPT_SHELL_LINE='#!/bin/sh'
+
+# ==================================================
+# 操作系统更新至最新版本，删除所有不需要的软件包，安装 tinc
+# ==================================================
+sudo apt-get install tinc -y
+
+# ==================================================
+# 创建 tinc 网络的配置目录
+# ==================================================
+sudo mkdir -p ${MY_TINC_VPN_HOME}/hosts
+
+# ==================================================
+# 生成配置目录中需要的配置文件
+# ==================================================
+# tinc.conf
+sudo echo -e "Name = host_10_0_0_254\n" > ${MY_TINC_VPN_HOME}/tinc.conf
+
+# tinc-down
+sudo echo -e "${MY_TINC_SCRIPT_SHELL_LINE}\n\n/sbin/ifconfig \$INTERFACE down\n" > ${MY_TINC_VPN_HOME}/tinc-down
+
+# tinc-up
+sudo /bin/echo -e "${MY_TINC_SCRIPT_SHELL_LINE}\n\n/sbin/ifconfig \$INTERFACE ${MY_TINC_VPN_HOST_IP} netmask 255.255.255.0" > ${MY_TINC_VPN_HOME}/tinc-up
+
+# 设置脚本运行权限
+sudo chmod +x ${MY_TINC_VPN_HOME}/tinc-up
+sudo chmod +x ${MY_TINC_VPN_HOME}/tinc-down
+
+# hosts 下的本机描述文件
+sudo echo -e "Address=${MY_REAL_IP}\nSubnet = ${MY_TINC_VPN_HOST_IP}/32\n" > ${MY_TINC_VPN_HOME}/hosts/${MY_TINC_VPN_HOST_NAME}
+
+sudo echo -e "\n${MY_TINC_VPN_NAME}\n" >> /etc/tinc/nets.boot
+
+# ==================================================
+# 生成本机秘钥
+# ==================================================
+sudo echo "" | tincd -n ${MY_TINC_VPN_NAME} -K
+
+# ==================================================
+# 脚本结束
+# ==================================================
+
+sudo echo '===== BEGIN ====='
+sudo cat ${MY_TINC_VPN_HOME}/hosts/${MY_TINC_VPN_HOST_NAME}
+sudo echo '=====  END  ====='
+
+
+sudo services tinc restart
+```
+
+
+
+
+
+
+
+Now let's edit tinc.conf:
+
+```
+sudo vi /etc/tinc/netname/tinc.conf
+```
+
+Let's add the following lines:
+
+```
+Name = ams
+AddressFamily = ipv4
+Interface = tun0
+```
+
+That's it. This will simply name the node ams and will use IPv4 on tun0. Save and quit the file.
+
+Next up we'll create the ams host file configuration.
+
+```
+sudo vi /etc/tinc/netname/hosts/ams
+```
+
+Add the following lines to it (substitute the public IP address of your server here):
+
+```
+Address = ams_public_IP
+Subnet = 10.0.0.1/32
+```
+
+This file will tell the mesh network what the host will serve. In the case above, it will only serve the IP address 10.0.0.1/32. Save and quit that file too.
+
+Next up, we'll need to create a public/private key pair. We can do this by executing:
+
+```
+sudo tincd -n netname -K4096
+```
+
+This creates the private key (/etc/tinc/netname/rsa_key.priv) and appends the public key to the ams hosts configuration file that we recently created (/etc/tinc/netname/hosts/ams).
+
+Next, we'll need to create a `tinc-up` file. This will execute every time the `netname` VPN is launched.
+
+```
+sudo vi /etc/tinc/netname/tinc-up
+```
+
+We'll just add a single line:
+
+```
+ifconfig $INTERFACE 10.0.0.1 netmask 255.255.255.0
+```
+
+This will tell our machine to configure the interface with the IP address `10.0.0.1` when it launches.
+
+Next up we'll add a script to clean everything up when the VPN shuts down.
+
+```
+ifconfig $INTERFACE down
+```
+
+Lastly, we'll need to make sure these scripts are executable.
+
+```
+sudo chmod 755 /etc/tinc/netname/tinc-*
+```
+
+That's it for now on the `ams` node.
+
+
+
+copy myhost /etc/tinc/mytincvpn/hosts/nodecenter
+
+
+
+
+
 tinc 是一个组建虚拟专用网络（VPN）的小工具，可以将不同环境的设备组成一个虚拟网络，增减设备也很方便。无论在什么地方，只要能连入互联网，就可以直接访问 VPN 里的设备，进行移动办公、运维什么的非常方便，再加上通讯经过加密和压缩，安全性也有提高。
 
 软件的官网在这里： 
