@@ -1,0 +1,477 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>加密 / 认证 / 压缩 · tinc 组网简明教程 （TincCookbook）</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Chanix">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="mesh.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍 / 作者序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    tinc 简介
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="rsaandzip.html">
+            
+                <a href="rsaandzip.html">
+            
+                    
+                    加密 / 认证 / 压缩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="mesh.html">
+            
+                <a href="mesh.html">
+            
+                    
+                    分布式网状架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../basicknowledge/">
+            
+                <a href="../basicknowledge/">
+            
+                    
+                    基础知识
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../basicknowledge/install.html">
+            
+                <a href="../basicknowledge/install.html">
+            
+                    
+                    安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../basicknowledge/config.html">
+            
+                <a href="../basicknowledge/config.html">
+            
+                    
+                    配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../basicknowledge/rsakey.html">
+            
+                <a href="../basicknowledge/rsakey.html">
+            
+                    
+                    秘钥
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../basicknowledge/run.html">
+            
+                <a href="../basicknowledge/run.html">
+            
+                    
+                    运行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../basicknowledge/check.html">
+            
+                <a href="../basicknowledge/check.html">
+            
+                    
+                    检查
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../examples/">
+            
+                <a href="../examples/">
+            
+                    
+                    组网实例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../todo.html">
+            
+                <a href="../todo.html">
+            
+                    
+                    网络示意图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../todo.html">
+            
+                <a href="../todo.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../todo.html">
+            
+                <a href="../todo.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../todo.html">
+            
+                <a href="../todo.html">
+            
+                    
+                    Mac OS X
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../advanced/advanced.html">
+            
+                <a href="../advanced/advanced.html">
+            
+                    
+                    进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../theend/theend.html">
+            
+                <a href="../theend/theend.html">
+            
+                    
+                    结束语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >加密 / 认证 / 压缩</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x52A0;&#x5BC6;&#x8BA4;&#x8BC1;&#x538B;&#x7F29;">&#x52A0;&#x5BC6;/&#x8BA4;&#x8BC1;/&#x538B;&#x7F29;</h1>
+<p>&#x672C;&#x6559;&#x7A0B;&#x5E76;&#x4E0D;&#x662F;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x7C7B;&#x4E66;&#x7C4D;&#xFF0C;&#x5E76;&#x4E0D;&#x6253;&#x7B97;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x3002;</p>
+<p>&#x60A8;&#x9700;&#x8981;&#x77E5;&#x9053;&#x7684;&#x662F;&#xFF1A;</p>
+<p>tinc &#x7F51;&#x7EDC;&#x4E2D;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x8BAF;&#x90FD;&#x7ECF;&#x8FC7;&#x4E86;&#x52A0;&#x5BC6;&#x3002;&#x52A0;&#x5BC6;&#x7528;&#x7684;rsa&#x7B97;&#x6CD5;&#xFF0C;&#x5176;&#x5F3A;&#x5EA6;&#x8DB3;&#x591F;&#x65E5;&#x5E38;&#x5DE5;&#x4F5C;&#x751F;&#x6D3B;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x4E0E;&#x4E00;&#x53F0;&#x4E3B;&#x673A;&#x8FDB;&#x884C;&#x901A;&#x8BAF;&#xFF0C;&#x90A3;&#x4E48;&#x60A8;&#x5FC5;&#x987B;&#x8981;&#x77E5;&#x9053;&#x5BF9;&#x65B9;&#x7684;&#x516C;&#x94A5;&#xFF0C;&#x800C;&#x5BF9;&#x65B9;&#x4E5F;&#x9700;&#x8981;&#x77E5;&#x9053;&#x60A8;&#x7684;&#x516C;&#x94A5;&#x3002;</p>
+<p>&#x79C1;&#x94A5;&#x8BF7;&#x59A5;&#x5584;&#x4FDD;&#x7BA1;&#x5E76;&#x4FDD;&#x5BC6;&#xFF0C;&#x53EA;&#x8981;&#x79C1;&#x94A5;&#x672A;&#x6CC4;&#x5BC6;&#xFF0C;&#x90A3;&#x4E48;&#x60A8;&#x7684;&#x6570;&#x636E;&#x5C31;&#x662F;&#x5B89;&#x5168;&#x7684;&#xFF1B;</p>
+<p>RSA&#x52A0;&#x5BC6;&#x7684;&#x5F3A;&#x5EA6;&#x6536;&#x5230;&#x79D8;&#x94A5;&#x957F;&#x5EA6;&#x7684;&#x5F71;&#x54CD;&#xFF08;&#x6211;&#x5E94;&#x8BE5;&#x7528;&#x591A;&#x957F;&#x7684;&#x79D8;&#x94A5;&#x624D;&#x5408;&#x9002;&#xFF1F;&#xFF09;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: tinc 简介">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="mesh.html" class="navigation navigation-next " aria-label="Next page: 分布式网状架构">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"加密 / 认证 / 压缩","level":"1.2.1","depth":2,"next":{"title":"分布式网状架构","level":"1.2.2","depth":2,"path":"introduction/mesh.md","ref":"introduction/mesh.md","articles":[]},"previous":{"title":"tinc 简介","level":"1.2","depth":1,"path":"Introduction/README.md","ref":"Introduction/README.md","articles":[{"title":"加密 / 认证 / 压缩","level":"1.2.1","depth":2,"path":"introduction/rsaandzip.md","ref":"introduction/rsaandzip.md","articles":[]},{"title":"分布式网状架构","level":"1.2.2","depth":2,"path":"introduction/mesh.md","ref":"introduction/mesh.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mermaid-gb3"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"mermaid-gb3":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Chanix","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"tinc 组网简明教程 （TincCookbook）","gitbook":"*"},"file":{"path":"introduction/rsaandzip.md","mtime":"2019-03-22T04:38:04.291Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-22T04:39:10.991Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
