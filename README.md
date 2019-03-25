@@ -3,9 +3,15 @@
 　　本教程是一本关于 tinc VPN 的实操指南，记录了作者几年来使用 tinc 的经验、教训和建议，可作为 tinc 入门参考和快速指南。
 
 
+
+　　您可以在这里发现本教程的最新版本：https://chanix.github.io/TincCookbook
+
+
+
+
 # 作者序
 
-　　谨以此教程献给我的家人，感谢一直以来对我的容忍和支持。我不擅长表达，在这里说声谢谢，或许未来他们能够知道。
+　　*谨以此文献给我的家人，感谢一直以来对我的容忍和支持。我不擅长表达，在这里说声谢谢，或许未来他们能够知道。*
 
 
 
@@ -25,24 +31,16 @@
 
 
 
-#### 注：
 
-- tinc 目前两大版本：1.0为稳定版，1.1开发版。本着稳定优先原则，本教程讲解和使用 1.0 版。
 
-- tinc 是一种 VPN 实现技术，VPN 是虚拟专有网络的简称；
-
-- tinc 相对小众，如果选择它，请记得最终需要负责的，是您 :) ；
-
-  
-
-#### 相关内容
-- 本书仓库：https://github.com/Chanix/TincCookbook
+# 相关内容
+- 本书源码仓库：https://github.com/Chanix/TincCookbook
 - tinc 官网：https://www.tinc-vpn.org
 - tinc 源码仓库：https://github.com/gsliepen/tinc
 
 
 
-#### 转载注意事项
+# 转载注意事项
 
 　　本教程采用 [Creative Commons BY-NC-ND 4.0（自由转载-保持署名-非商用-禁止演绎）](http://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh) 协议发布，可以在非商业的前提下免费转载，但同时**必须**：
 

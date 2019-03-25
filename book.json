@@ -1,6 +1,7 @@
 {
-    "title": "tinc 组网简明教程 （TincCookbook）",
+    "title": "tinc 简明教程 （TincCookbook）",
     "author": "Chanix",
+    "language": "zh-hans",
     "plugins": [
         "mermaid-gb3"
     ]
