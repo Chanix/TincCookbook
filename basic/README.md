@@ -63,12 +63,12 @@ C(运行) --> D(检查);
 
 - tinc-up、tinc-down
 
-　　脚本文件，这两个脚本是在 tinc 启动和关闭该网络时被调用。一般用来设置虚拟网卡的IP、路由。
+　　脚本文件，这两个脚本是在 tinc 启动和关闭该网络时被调用。一般在这个脚本中用 “ifconfig/ipconfig” 等命令来设置虚拟网卡的 IP、路由等网络设置。
 　　如果是 Unix-like 系统，需要有运行权限，如果是 Windows 系统，则需要增加 “.bat”后缀，即 “tinc-up.bat” 和 “tinc-down.bat”。
 
 - rsa_key.priv
 
-　　RSA 私钥文件，存放本主机的 RSA 私钥；
+　　RSA 私钥文件，存放本主机的 RSA 私钥，这个文件的内容注意保密；
 
 - hosts 子目录
 
