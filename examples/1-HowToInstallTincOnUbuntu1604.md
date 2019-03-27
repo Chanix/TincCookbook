@@ -1,9 +1,9 @@
-# 1.核心主机 / Ubuntu Server 16.04
+# 1. 核心主机 / Ubuntu Server 16.04
 
 　　本节我们将配置核心主机，这是购买一台的阿里云主机。这台核心主机的 tinc 作为服务自动启动，启动后等待其他主机来连接。其他所有的主机都配置为主动连接核心主机。核心主机处理主机的认证和必要的中继转发。
 
 
-详细配置与VPN设置项：
+详细配置与 VPN 设置：
 
 | 项目 | 数据 |
 | --------   | -----   |
@@ -96,7 +96,7 @@ sudo vi /etc/tinc/home_vpn/tinc-up
 ```
 #!/bin/sh
 
-ifconfig $INTERFACE 10.34.34.102 netmask 255.255.0.0
+ifconfig $INTERFACE 10.0.0.254 netmask 255.255.0.0
 ```
 创建启动脚本 tinc-down
 
@@ -111,8 +111,8 @@ ifconfig $INTERFACE down
 ```
 赋予脚本可执行权限：
 ```
-chmod +x /etc/tinc/home_vpn/tinc-up
-chmod +x /etc/tinc/home_vpn/tinc-down
+sudo chmod +x /etc/tinc/home_vpn/tinc-up
+sudo chmod +x /etc/tinc/home_vpn/tinc-down
 ```
 
 
@@ -191,13 +191,17 @@ Subnet = 10.0.0.254/32
 Ubuntu 中，安装了 tinc 软件包就默认安装了 tinc 服务。系统启动后会自动运行这个服务，其读取 /etc/tinc/nets.boot 的内容来确定启动哪些 VPN。也就是说，如果想自动启动某个 VPN，只需将编辑该文件，加入 VPN 的网络名称即可。
 
 ```
-sudo vi /etc/tinc/nets.boot
+sudo echo -e "home_vpn\n" >> /etc/tinc/nets.boot
 ```
-编辑文件，增加一行：
+这样，下次系统启动时，就会自动启动 home_vpn。也可以 sudo service tinc start、sudo service tinc stop 等命令来手工控制服务。
+
+为了确保，我们来重启一下机器：
+
 ```
-home_vpn
+sudo reboot
 ```
-这样，下次系统启动时，就会自动启动 home_vpn。也可以 service tinc start、service tinc stop 等命令来手工控制服务。我们可以用下列命令来查看进程：
+
+重启完成后，可以用下列命令来查看进程：
 
 ```
 ps -efa | grep tinc
