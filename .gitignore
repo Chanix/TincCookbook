@@ -3,3 +3,4 @@ _book
 tmp
 * - 副本.*
 /gb*.bat
+/node_modules/
