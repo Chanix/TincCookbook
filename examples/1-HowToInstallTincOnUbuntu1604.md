@@ -178,6 +178,8 @@ Subnet = 10.0.0.254/32
 -----END RSA PUBLIC KEY-----
 ```
 
+*注：如果您正在设置您的主机，请记得将上面 111.111.111.111 修改为您主机的公网 IP。*
+
 
 
 ## 交换密钥
@@ -188,14 +190,21 @@ Subnet = 10.0.0.254/32
 
 ## 设为自启
 
-Ubuntu 中，安装了 tinc 软件包就默认安装了 tinc 服务。系统启动后会自动运行这个服务，其读取 /etc/tinc/nets.boot 的内容来确定启动哪些 VPN。也就是说，如果想自动启动某个 VPN，只需将编辑该文件，加入 VPN 的网络名称即可。
+　　Ubuntu 中，安装了 tinc 软件包即安装了 tinc 服务。系统启动后会自动运行这个服务，其读取 /etc/tinc/nets.boot 的内容来确定启动哪些 VPN。也就是说，如果想自动启动某个 VPN，只需将编辑该文件，加入 VPN 的网络名称即可。这样每次机器重启后会自动启动 home_vpn。也可以 sudo service tinc start、sudo service tinc stop 等命令来手工控制服务。
+
+编辑/etc/tinc/nets.boot：
 
 ```
-sudo echo -e "home_vpn\n" >> /etc/tinc/nets.boot
+sudo vi /etc/tinc/nets.boot
 ```
-这样，下次系统启动时，就会自动启动 home_vpn。也可以 sudo service tinc start、sudo service tinc stop 等命令来手工控制服务。
 
-为了确保，我们来重启一下机器：
+在文件末尾加上一行：
+
+```
+home_vpn
+```
+
+重启系统：
 
 ```
 sudo reboot
