@@ -24,7 +24,9 @@ VPN 设置：
 　　登录服务器，进入终端：
 
 ```
-sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && sudo apt-get install tinc -y
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y
+
+sudo apt-get install tinc -y
 ```
 
 
@@ -49,7 +51,7 @@ sudo vi /etc/tinc/home_vpn/tinc.conf
 
 ```
 Name = desktop
-ConnectTo = tinc_alil
+ConnectTo = tinc_ali
 ```
 
 指明本主机的主机名为 desktop。注意这里多了一行 ConnectTo，这行 ConnectTo 指定启动时，自动连接上一节我们配置好的核心主机 tinc_ali。
@@ -68,7 +70,7 @@ sudo vi /etc/tinc/home_vpn/tinc-up
 ```
 #!/bin/sh
 
-ifconfig $INTERFACE 10.34.34.100 netmask 255.255.0.0
+ifconfig $INTERFACE 10.0.0.100 netmask 255.255.0.0
 ```
 
 创建启动脚本 tinc-down
@@ -134,14 +136,17 @@ sudo tincd -n home_vpn -K
 
 ## 设为自启
 
-编辑/etc/tinc/nets.boot，加入 VPN 的网络名称 home_vpn，然后重启系统。
+　　Ubuntu 18.04 不再使用 initd 管理系统，改用 systemd，因此和 16.04 之前的版本设置方法不同。需使用 systemctl 来进行服务的管理：
 
 ```
-sudo echo -e "home_vpn\n" >> /etc/tinc/nets.boot
+sudo systemctl enable tinc@home_vpn
+```
+
+重启系统：
+
+```
 sudo reboot
 ```
-
-
 
 
 
@@ -149,22 +154,22 @@ sudo reboot
 
 重启完成后，通过 ping 来验证网络是否互通。
 
-在 desktop 上
+在 desktop 上：
 
 ```
 ping -c 10.0.0.254
 ```
-在 tinc_ali 上
+在 tinc_ali 上：
 
 ```
 ping -c 10.0.0.100
 ```
 
-OK，如无意外的话，都能ping通。如果ping不通，请检查双方，尤其是 tinc_ali 的防火墙设置是否正确。
+如果您是严格按照教程做，无意外的话已经能相互 ping 通了。如果ping不通，请检查双方，尤其是 tinc_ali 的防火墙设置是否正确。
 
 
 
 ## 完成
 
-到这里，我们的VPN有了两台机器。分别是 tinc_ali 和 desktop。这两台机器现在可以互相通讯，而不用关心各自的网络环境。
+现在 VPN 共有两台机器：tinc_ali 和 desktop。这两台机器现在开机即可相互通讯，有兴趣的话还可以再试试 SSH 等网络应用。
 

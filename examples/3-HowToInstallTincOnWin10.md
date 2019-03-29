@@ -20,18 +20,18 @@ VPN 设置：
 ## 安装 tinc
 
 　　首先到官网下载安装包　<https://www.tinc-vpn.org/download/>。目前能下载到的最新稳定版是 1.0.35。下载完成后运行安装程序，直接 Next，Next 到 Finish 即可，整个过程非常的简单。
-![](D:\WorkBench\GitHub\TincCookbook\examples\images\win_setup_0.png)
-![](D:\WorkBench\GitHub\TincCookbook\examples\images\win_setup_1.png)
-![](D:\WorkBench\GitHub\TincCookbook\examples\images\win_setup_2.png)
-![](D:\WorkBench\GitHub\TincCookbook\examples\images\win_setup_3.png)
-![](D:\WorkBench\GitHub\TincCookbook\examples\images\win_setup_4.png)
-![](D:\WorkBench\GitHub\TincCookbook\examples\images\win_setup_5.png)
+![](./images/win_setup_0.png)
+![](./images/win_setup_1.png)
+![](./images/win_setup_2.png)
+![](./images/win_setup_3.png)
+![](./images/win_setup_4.png)
+![](./images/win_setup_5.png)
 
 
 
 　　安装完成后，需要先安装虚拟网卡设备。在任务栏 Win 按钮处，按鼠标右键并选择 **Windows PowerShell（管理员）(A)**，后面的操作我们都将使用打开的命令行窗口（方便获得管理员权限也方便读者粘帖命令）：
 
-![](D:\WorkBench\GitHub\TincCookbook\examples\images\win_setup_ps.png)
+![](./images/win_setup_ps.png)
 
 
 
@@ -40,7 +40,7 @@ VPN 设置：
 ```
 & 'C:\Program Files (x86)\tinc\tap-win64\addtap.bat'
 ```
-![](D:\WorkBench\GitHub\TincCookbook\examples\images\win_setup_tap.png)
+![](./images/win_setup_tap.png)
 
 
 
@@ -48,7 +48,7 @@ VPN 设置：
 
 *备注：由于配置环境的差异，您的可能与我不同（例如 Win7 中为 *本地连接 2*）。*
 
-![](D:\WorkBench\GitHub\TincCookbook\examples\images\win_setup_net.png)
+![](./images/win_setup_net.png)
 
 
 
