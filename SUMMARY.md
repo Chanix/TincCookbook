@@ -1,7 +1,7 @@
 # Summary
 
 * [介绍 / 作者序](README.md)
-* [tinc 简介](Introduction/README.md)
+* [tinc 简介](introduction/README.md)
 * [基础使用](basic/README.md)
 * [组网实例（home_vpn）](examples/README.md)
   * [1. 核心主机 / Ubuntu 16.04](examples/1-HowToInstallTincOnUbuntu1604.md)
