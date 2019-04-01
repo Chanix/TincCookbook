@@ -1,21 +1,13 @@
-# 1. 核心主机 / Ubuntu Server 16.04
+# 4. 开发机 / MacOS Mojave
 
-　　官方手册中，例子为 Darwin，MAC的安装使用MACPORTS。说实话操作起来很麻烦，我更加推荐用homebrew直接安装。
-　　
-　　首先，安装 homebrew ，官网在这里 https://brew.sh/
-　　/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-　　
-　　brew update
-　　brew install -y tinc
-　　brew cask install tuntap
-　　
-　　搞定！
-　　
-　　本节我们将配置核心主机，这是购买一台的阿里云主机。这台核心主机的 tinc 作为服务自动启动，启动后等待其他主机来连接。其他所有的主机都配置为主动连接核心主机。核心主机处理主机的认证和必要的中继转发。
+　　我有一台 Mac mini 作为日常 MacOS 环境的开发机，已经升级为目前最新的版本 Mojave。本节，将这台主机加入到 VPN 中。有点洁癖，所以这次是先删除数据，彻底重新安装后操作并记录的。但是也适用于High Seia 等版本。
+
+
 
 详细配置与 VPN 设置：
 
 | 项目         | 数据            |
+| --------   | -----   |
 | VPN 网络名称 | home_vpn        |
 | VPN 主机名称 | macmini        |
 | VPN IP       | 10.0.0.102      |
@@ -24,43 +16,33 @@
 | tinc 端口    | 655(默认)       |
 
 
+## 安装 HomeBrew　　
+　　官方手册提供的是通过 MacPorts + XCode 安装的方式，不适合普通用户，我推荐使用常用的包管理器 HomeBrew 来安装预编译版，需安装 HomeBrew，如果已经安装则跳过次步。
+　　关于 HomeBrew 的介绍和使用，超出了本教程的范围，有需要的读者可以到其官网 https://brew.sh/ 获得更详细的信息，本节只说明操作步骤。
+
+
+
+打开终端，执行命令：
+
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+
 
 ## 安装 tinc
 
-登录服务器，进入终端。阿里云的安装镜像不是最新的，建议先将系统升级到最新状态。下面的这行命令将更新软件列表，升级到最新版本并自动删除不再使用的软件包：
+　　MacOS 自带 tun/tap 设备，出于兼容性的考虑，使用开源的 tuntap 包作为 tinc 虚拟网卡设备。在终端中执行下列命令：
+
+
+
+*出于安全的需要，系统会要求输入鉴定密码或者打开安全设置，请按照提示操作。*
 
 ```
-sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y
+brew cask install tuntap
+brew install -y tinc
 ```
-
-然后安装 tinc：
-
-```
-sudo apt-get install tinc -y
-```
-
-好了，安装完成。tinc 的默认主配置目录为 /etc/tinc，现在这个目录里面只有一个文件 nets.boot。
-
-```
->which tincd
-/usr/sbin/tincd
-
->tincd --version
-tinc version 1.0.26 (built Jul  5 2015 23:17:56, protocol 17)
-Copyright (C) 1998-2015 Ivo Timmermans, Guus Sliepen and others.
-See the AUTHORS file for a complete list.
-
-tinc comes with ABSOLUTELY NO WARRANTY.  This is free software,
-and you are welcome to redistribute it under certain conditions;
-see the file COPYING for details.
-
->ls /etc/tinc
-nets.boot
-
->cat /etc/tinc/nets.boot
-## This file contains all names of the networks to be started on system startup.
-
-```
+这里，第一行安装开源 tuntap 包，第二行安装 tinc 软件。
 
 
 
@@ -68,8 +50,10 @@ nets.boot
 
 1.建立网络配置目录（网络名称为 *home_vpn*）：
 
+通过 HomeBrew 安装的所有包都在 /usr/local 下，tinc的默认主目录为 /usr/local/etc/tinc。刚安装完是没有的。
+
 ```
-sudo mkdir -p /etc/tinc/home_vpn/hosts
+sudo mkdir -p /usr/local/etc/tinc/home_vpn/hosts
 ```
 
 
@@ -77,16 +61,18 @@ sudo mkdir -p /etc/tinc/home_vpn/hosts
 2.建立配置文件 tinc.conf
 
 ```
-sudo vi /etc/tinc/home_vpn/tinc.conf
+sudo vi /usr/local/etc/tinc/home_vpn/tinc.conf
 ```
 
 编辑 tinc.conf 内容如下：
 
 ```
-Name = tinc_ali
+Name = macmini
+ConnectTo tinc_ali
+Device = tap0
 ```
 
-由于本主机为核心主机，只负责等待和认证其他主机的连接。因此，本主机没有配置 ConnectTo。
+指明本主机的主机名为 macmini。注意这里通过 Device 指定了设备。
 
 
 
@@ -94,7 +80,7 @@ Name = tinc_ali
 创建启动脚本 tinc-up
 
 ```
-sudo vi /etc/tinc/home_vpn/tinc-up
+sudo vi /usr/local/etc/tinc/home_vpn/tinc-up
 ```
 
 编辑 tinc-up 内容如下：
@@ -102,14 +88,13 @@ sudo vi /etc/tinc/home_vpn/tinc-up
 ```
 #!/bin/sh
 
-ifconfig $INTERFACE 10.0.0.254 netmask 255.255.0.0
+ifconfig $INTERFACE 10.0.0.102 netmask 255.255.0.0
 ```
 
 创建启动脚本 tinc-down
 
 ```
-sudo vi /etc/tinc/home_vpn/tinc-down
-
+sudo vi /usr/local/etc/tinc/home_vpn/tinc-down
 ```
 
 编辑 tinc-down 内容如下：
@@ -118,7 +103,6 @@ sudo vi /etc/tinc/home_vpn/tinc-down
 #!/bin/sh
 
 ifconfig $INTERFACE down
-
 ```
 
 赋予脚本可执行权限：
@@ -126,27 +110,21 @@ ifconfig $INTERFACE down
 ```
 sudo chmod +x /etc/tinc/home_vpn/tinc-up
 sudo chmod +x /etc/tinc/home_vpn/tinc-down
-
 ```
 
 
 
-4.创建本主机描述文件（网络名称为 *tinc_ali*）
+4.创建本主机描述文件（网络名称为 *macmini*）
 
 ```
-sudo vi /etc/tinc/home_vpn/hosts/tinc_ali
-
+sudo vi /usr/local/etc/tinc/home_vpn/hosts/macmini
 ```
 
 编辑 tinc_ali 内容如下：
 
 ```
-Address = 111.111.111.111
-Subnet = 10.0.0.254/32
-
+Subnet = 10.0.0.102/32
 ```
-
-其中 Address 指明公网地址，告诉其他主机怎么连接核心主机。Subnet 中 “10.0.0.254” 是本主机的 VPN IP，“/32”说明是本主机的一台普通类型的主机。不了解没关系，先这么写，以后可以参阅进阶进一步学习。
 
 
 
@@ -156,112 +134,89 @@ Subnet = 10.0.0.254/32
 
 ```
 sudo tincd -n home_vpn -K
-
 ```
 
-运行完成以后，会生成私钥文件 /etc/tinc/home_vpn/rsa_key.priv，并在本主机的描述文件中增加公钥。
-
-
-
-查看私钥文件：
-
-```
-cat /etc/tinc/home_vpn/rsa_key.priv 
-
-```
-
-/etc/tinc/home_vpn/rsa_key.priv 内容类似下面这样，“*-----BEGIN RSA PRIVATE KEY-----*” 和 “*-----END RSA PRIVATE KEY-----*” 之间是本机私钥，这个文件的内容注意保密不要泄露。
-
-```
------BEGIN RSA PRIVATE KEY-----
-...
-...
-...
------END RSA PRIVATE KEY-----
-
-```
-
-查看本主机描述文件内容：
-
-```
-cat /etc/tinc/home_vpn/hosts/tinc_ali 
-
-```
-
-可以看到这个文件的内容发生了变化。在原来编辑的两行后增加了 “*-----BEGIN RSA PUBLIC KEY-----*” 和 “*-----END RSA PUBLIC KEY-----*” 之间的内容，这段内容是本主机的公钥。
-
-```
-Address = 111.111.111.111
-Subnet = 10.0.0.254/32
-
------BEGIN RSA PUBLIC KEY-----
-...
-...
-...
------END RSA PUBLIC KEY-----
-
-```
-
-*注：如果您正在设置您的主机，请记得将上面 111.111.111.111 修改为您主机的公网 IP。*
+运行完成以后，会生成私钥文件 /etc/tinc/home_vpn/rsa_key.priv，并更新本主机的描述文件 /etc/tinc/home_vpn/hosts/macmini。
 
 
 
 ## 交换密钥
 
-由于我们这里配置的是 VPN 里第一台主机，还没有其他主机连接进来。所以交换密钥先略过了，等后面加入其他主机的时候再进行。
+将本主机的 /usr/local/etc/tinc/home_vpn/hosts/macmini 复制到核心主机 /etc/tinc/home_vpn/hosts/macmini。
+
+复制核心主机的 /etc/tinc/home_vpn/hosts/tinc_ali 到本主机 /usr/local/etc/tinc/home_vpn/hosts/tinc_ali。
 
 
 
 ## 设为自启
 
-　　Ubuntu 中，安装了 tinc 软件包即安装了 tinc 服务。系统启动后会自动运行这个服务，其读取 /etc/tinc/nets.boot 的内容来确定启动哪些 VPN。也就是说，如果想自动启动某个 VPN，只需将编辑该文件，加入 VPN 的网络名称即可。这样每次机器重启后会自动启动 home_vpn。也可以 sudo service tinc start、sudo service tinc stop 等命令来手工控制服务。
+　　MacOS 通过 Lauchd 管理系统服务和自启项。需要设置 .plist 文件来设为自启，编辑下列文件：
 
-编辑/etc/tinc/nets.boot：
 
-```
-sudo vi /etc/tinc/nets.boot
 
-```
+以root权限向/Library/LaunchDaemons/tincd.home_vpn.plist 写入：
 
-在文件末尾加上一行：
+
 
 ```
-home_vpn
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>KeepAlive</key>
+    <true/>
+    <key>Label</key>
+    <string>tinc.home_vpn</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/sbin/tincd</string>
+        <string>-n</string>
+        <string>home_vpn</string>
+        <string>-D</string>
+        <string>--pidfile=/usr/local/var/run/tinc.home_vpn.pid</string>
+    </array>
+    <key>StandardErrorPath</key>
+    <string>/tmp/tinc.home_vpn.err</string>
+    <key>StandardOutPath</key>
+    <string>/tmp/tinc.home_vpn.out</string>
+</dict>
+</plist>
+```
 
+启动服务：
+
+```
+sudo launchctl load tinc.home_vpn
 ```
 
 重启系统：
 
 ```
 sudo reboot
-
 ```
-
-重启完成后，可以用下列命令来查看进程：
-
-```
-ps -efa | grep tinc
-
-```
-
-
 
 
 
 ## 测试
 
-由于我们这里配置的是 VPN 里第一台主机，还没有其他主机连接进来。所以测试先略过了，等后面加入其他主机的时候再进行。
+重启完成后，通过 ping 来验证网络是否互通。
 
-现在，我们可以先 ping 自己，看看虚拟网卡是否已经启动并绑定了指定的地址：
-
-```
-ping -c 5 10.0.0.254 
+在 desktop 上：
 
 ```
+ping -c 10.0.0.254
+```
+
+在 tinc_ali 上：
+
+```
+ping -c 10.0.0.102
+```
+
+如果您是严格按照教程做，无意外的话已经能相互 ping 通了。如果ping不通，请检查双方，尤其是 tinc_ali 的防火墙设置是否正确。
 
 
 
 ## 完成
 
-核心主机的安装配置过程大概就是这样。由于是第一台主机，所以交换密钥和测试都略过了。截止目前，我们拥有了第一台 tinc VPN 主机。这台主机暂时孤独的运行在互联网上，等待其他 VPN 主机的连接。
-
+　　
