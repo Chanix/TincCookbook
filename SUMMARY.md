@@ -8,6 +8,7 @@
   * [2. 台式机 / Ubuntu 18.04](examples/2-HowToInstallTincOnUbuntu1804.md)
   * [3. 笔记本 / Win10](examples/3-HowToInstallTincOnWin10.md)
   * [4. 开发机 / MacOS mojave](examples/4-HowToInstallTincOnMacOSMojave.md)
+  * [5. 群晖 NAS / Synology 5.2 5529](examples/5-HowToInstallTincOnSynology5-2-5529.md)
   * [路由器 / OpenWrt](examples/HowToInstallTincOnOpenWrt.md)
 * [进阶](advanced/advanced.md)
 * [结束语](theend/theend.md)
