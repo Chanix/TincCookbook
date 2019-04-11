@@ -96,13 +96,13 @@ sudo chmod +x /etc/tinc/home_vpn/tinc-down
 
 
 
-4.创建本主机描述文件（网络名称为 *desktop*）
+4.创建本主机描述文件（主机名称为 *desktop*）
 
 ```
 sudo vi /etc/tinc/home_vpn/hosts/desktop
 ```
 
-编辑 tinc_ali 内容如下：
+编辑 desktop 内容如下：
 
 ```
 Subnet = 10.0.0.100/32

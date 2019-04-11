@@ -42,7 +42,12 @@
 brew cask install tuntap
 brew install -y tinc
 ```
-这里，第一行安装开源 tuntap 包，第二行安装 tinc 软件。
+　　这里，第一行安装开源 tuntap 包，第二行安装 tinc 软件。
+
+　　注意，由于安全性的需要，安装时如果出现鉴定或者安全性警告，请输入管理员密码通过，或者是打开 系统偏好设置 中的 安全性与隐私，通过操作。如下列图：
+
+![mojave_setup_1](images/mojave_setup_1.png)
+![mojave_setup_2](images/mojave_setup_2.png)
 
 
 
